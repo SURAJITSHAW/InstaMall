@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "852516848457",
+    "project_id": "instal-mall-shaw",
+    "storage_bucket": "instal-mall-shaw.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852516848457:android:90d5df7e5429864eca9098",
+        "android_client_info": {
+          "package_name": "com.example.instamall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGPz-fx8u1NJz2rRZan3xVj54ABxCgt34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
