@@ -16,7 +16,7 @@
     <color name="error_color">#F44336</color> <!-- Red for Errors -->
 
 
-        <color name="status_bar_color">#6200EE</color> <!-- Replace with your color -->
+    <color name="status_bar_color">#6200EE</color> <!-- Replace with your color -->
 
 
 
