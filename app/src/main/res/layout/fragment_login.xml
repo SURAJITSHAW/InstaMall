@@ -5,10 +5,85 @@
     android:layout_height="match_parent"
     tools:context=".fragments.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
         android:layout_height="match_parent"
-        android:text="Login" />
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="#F5EFE6">
+
+        <!-- Heading -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Welcome Back!"
+            android:textSize="28sp"
+            android:textColor="#3E2723"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Subheading -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Sign in to personalize your space."
+            android:textSize="16sp"
+            android:textColor="#795548"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Email/Username Field -->
+        <EditText
+            android:hint="Email or Username"
+            android:background="@drawable/input_background"
+                android:padding="12dp"
+            android:textColor="#3E2723"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Password Field -->
+        <EditText
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:textColor="#3E2723"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Login Button -->
+        <Button
+            android:text="Login"
+            android:backgroundTint="#FFB74D"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Forgot Password -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Forgot Password?"
+            android:textSize="14sp"
+            android:textColor="#BCAAA4"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Register Link -->
+        <TextView
+            android:id="@+id/register_link"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="New here? Register"
+            android:textSize="16sp"
+            android:textColor="#FFAD60"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+
 
 </FrameLayout>

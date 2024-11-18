@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Primary Palette for a Warm Home Decor Look -->
+    <color name="primary_color">#8C6D62</color> <!-- Warm Brown -->
+    <color name="accent_color">#FFAD60</color> <!-- Soft Coral Orange -->
+    <color name="background_color">#F5EFE6</color> <!-- Off White/Beige -->
+    <color name="text_primary">#3E2723</color> <!-- Deep Brown -->
+    <color name="text_secondary">#795548</color> <!-- Light Brown -->
+
+    <!-- Button Colors -->
+    <color name="button_color_primary">#FFB74D</color> <!-- Muted Amber -->
+    <color name="button_color_secondary">#BCAAA4</color> <!-- Taupe -->
+
+    <!-- Feedback Colors -->
+    <color name="success_color">#4CAF50</color> <!-- Green for Success Messages -->
+    <color name="error_color">#F44336</color> <!-- Red for Errors -->
+
+
+        <color name="status_bar_color">#6200EE</color> <!-- Replace with your color -->
+
+
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

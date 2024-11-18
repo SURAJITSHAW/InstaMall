@@ -5,10 +5,58 @@
     android:layout_height="match_parent"
     tools:context=".fragments.GetStartedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Get Started" />
+          <!-- Content inside the glass (heading, subheading, buttons) -->
+          <LinearLayout
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:gravity="center"
+
+              android:padding="24dp">
+
+              <!-- Heading -->
+              <TextView
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Welcome to InstaMall"
+                  android:textSize="32sp"
+                  android:textColor="#3E2723"
+                  android:textStyle="bold"
+                  android:layout_marginBottom="16dp"/>
+
+              <!-- Subheading -->
+              <TextView
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Explore a curated collection of home decor to fit your unique style."
+                  android:textSize="18sp"
+                  android:textColor="#795548"
+                  android:gravity="center"
+                  android:layout_marginBottom="32dp"/>
+
+              <!-- Register Button -->
+              <Button
+                  android:id="@+id/register"
+                  android:text="Register"
+                  android:backgroundTint="#FFB74D"
+                  android:textColor="#FFFFFF"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="16dp"
+                  android:elevation="8dp" /> <!-- Optional shadow for depth effect -->
+
+              <!-- Login Button -->
+              <Button
+                  android:id="@+id/login"
+                  android:text="Sign In"
+                  android:backgroundTint="#BCAAA4"
+                  android:textColor="#FFFFFF"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:elevation="8dp" /> <!-- Optional shadow for depth effect -->
+          </LinearLayout>
+
+
+
 
 </FrameLayout>

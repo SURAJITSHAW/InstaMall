@@ -5,10 +5,91 @@
     android:layout_height="match_parent"
     tools:context=".fragments.RegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="#F5EFE6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Register" />
+        android:layout_height="match_parent">
+
+        <!-- Heading -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Join Us"
+            android:textSize="28sp"
+            android:textColor="#3E2723"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Subheading -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Create an account to explore beautiful decor."
+            android:textSize="16sp"
+            android:textColor="#795548"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Full Name Field -->
+        <EditText
+            android:hint="Full Name"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Email Field -->
+        <EditText
+            android:hint="Email"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Password Field -->
+        <EditText
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Confirm Password Field -->
+        <EditText
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Register Button -->
+        <Button
+            android:text="Register"
+            android:backgroundTint="#FFB74D"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Login Link -->
+        <TextView
+            android:id="@+id/loginLink"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Already have an account? Login here"
+            android:textSize="16sp"
+            android:textColor="#FFAD60"
+            android:gravity="center"/>
+    </LinearLayout>
+
 
 </FrameLayout>
