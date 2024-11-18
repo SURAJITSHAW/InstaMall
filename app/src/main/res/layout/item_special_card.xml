@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@android:color/white"
+    tools:ignore="MissingPrefix">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Image of Special Item -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"/>
+
+        <!-- Title and Price -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/special_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Special Item"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/special_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$499"
+                android:textSize="16sp"
+                android:textColor="@color/primary_color"
+                android:layout_marginTop="6dp"/>
+        </LinearLayout>
+
+        <!-- Floating Heart Button -->
+        <ImageView
+            android:id="@+id/heart_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_heart"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:layout_alignParentTop="true"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
