@@ -14,6 +14,7 @@ import com.example.instamall.adapters.BestProductsAdapter
 import com.example.instamall.adapters.SpecialAdapter
 import com.example.instamall.databinding.FragmentHomeCatBinding
 import com.example.instamall.repo.ProductRepository
+import com.example.instamall.utils.toggleBottomNav
 
 class HomeCatFragment : Fragment() {
 
@@ -79,6 +80,12 @@ class HomeCatFragment : Fragment() {
                 Toast.makeText(requireContext(), "Failed to fetch products: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity.toggleBottomNav(isVisible = true, bottomNavId = R.id.bottomNavView)
+
     }
 
 }

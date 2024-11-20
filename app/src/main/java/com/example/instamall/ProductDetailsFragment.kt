@@ -11,6 +11,7 @@ import com.example.instamall.adapters.ProductImagesAdapter
 import com.example.instamall.adapters.SizesAdapter
 import com.example.instamall.data.Product
 import com.example.instamall.databinding.FragmentProductDetailsBinding
+import com.example.instamall.utils.toggleBottomNav
 
 class ProductDetailsFragment : Fragment() {
 
@@ -31,6 +32,10 @@ class ProductDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Hide Bottom Navigation
+        activity.toggleBottomNav(isVisible = false, bottomNavId = R.id.bottomNavView)
+
+
         // Retrieve product from SafeArgs
         val product: Product = ProductDetailsFragmentArgs.fromBundle(requireArguments()).product
 
@@ -41,10 +46,15 @@ class ProductDetailsFragment : Fragment() {
 
         // Set up ViewPager for product images
         setupViewPager(product.imageUrls)
+// Initialize RecyclerViews for colors and sizes
+        if (!product.colors.isNullOrEmpty()) {
+            setupColorsRecyclerView(product.colors)
+        }
 
-        // Initialize RecyclerViews for colors and sizes
-        setupColorsRecyclerView(product.colors)
-        setupSizesRecyclerView(product.sizes)
+        if (!product.sizes.isNullOrEmpty()) {
+            setupSizesRecyclerView(product.sizes)
+        }
+
 
         // Add to cart button click listener
         binding.addToCartButton.setOnClickListener {
