@@ -1,10 +1,12 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.application")
+    id("kotlin-android")
+    id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
     id("org.jetbrains.kotlin.kapt")
-    alias(libs.plugins.google.gms.google.services)
-
+    id("com.google.gms.google-services")
 }
+
 
 android {
     namespace = "com.example.instamall"

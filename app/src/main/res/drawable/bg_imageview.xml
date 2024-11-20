@@ -4,7 +4,7 @@
     <!-- Outer Circle -->
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/primary_color" />
+            <solid android:color="#9E9E9E" />
             <size
                 android:width="50dp"
                 android:height="50dp" />

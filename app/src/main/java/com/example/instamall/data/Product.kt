@@ -1,5 +1,9 @@
 package com.example.instamall.data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Product(
     val id: String? = null, // Nullable for products not yet saved
     val name: String = "",
@@ -10,4 +14,4 @@ data class Product(
     val colors: List<String>? = null, // Optional list of hex codes like "#FF5733"
     val sizes: List<String>? = null, // Optional sizes (e.g., "S", "M", "L")
     val imageUrls: List<String> = emptyList() // Default to empty list
-)
+) : Parcelable
