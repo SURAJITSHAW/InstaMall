@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.instamall.R
 import com.example.instamall.adapters.BestDealsAdapter
@@ -72,7 +73,7 @@ class HomeCatFragment : Fragment() {
     private fun fetchSpecialProducts() {
         productRepository.getSpecialProducts(
             onSuccess = { products ->
-                binding.rvSpecial.adapter = SpecialAdapter(products)
+                binding.rvSpecial.adapter = SpecialAdapter(products, findNavController())
             },
             onFailure = { exception ->
                 Toast.makeText(requireContext(), "Failed to fetch products: ${exception.message}", Toast.LENGTH_SHORT).show()
