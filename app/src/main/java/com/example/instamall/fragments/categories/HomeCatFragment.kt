@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.instamall.R
+import com.example.instamall.adapters.BestDealsAdapter
 import com.example.instamall.adapters.SpecialAdapter
 import com.example.instamall.databinding.FragmentHomeCatBinding
 import com.example.instamall.repo.ProductRepository
@@ -32,8 +33,21 @@ class HomeCatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvSpecial.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvBestDeals.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         fetchSpecialProducts()
+        fetchBestDealsProducts()
+    }
+
+    private fun fetchBestDealsProducts() {
+        productRepository.getBestDealsProducts(
+            onSuccess = { products ->
+                binding.rvBestDeals.adapter = BestDealsAdapter(products)
+            },
+            onFailure = { exception ->
+                Toast.makeText(requireContext(), "Failed to fetch products: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun fetchSpecialProducts() {

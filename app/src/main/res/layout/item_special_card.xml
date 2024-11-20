@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="250dp"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     android:layout_margin="10dp"
     android:padding="8dp"
     app:cardCornerRadius="12dp"
@@ -17,13 +17,13 @@
         <!-- Image Section -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"> <!-- Fixed height for uniformity -->
+            android:layout_height="100dp"> <!-- Fixed height for uniformity -->
 
             <ImageView
                 android:id="@+id/specialImg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="center" />
+                android:scaleType="centerInside" />
 
             <ImageView
                 android:id="@+id/heart_button"
