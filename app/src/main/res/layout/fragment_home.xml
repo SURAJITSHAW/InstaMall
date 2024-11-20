@@ -41,14 +41,15 @@
             </LinearLayout>
 
             <ImageView
-
+                android:background="@drawable/bg_imageview"
                 android:layout_weight="1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_scan"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_notification"/>
 
             <ImageView
-                android:layout_width="40dp"
+                android:background="@drawable/bg_imageview"
+                android:layout_width="35dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_circular_profile"/>
 
@@ -73,7 +74,6 @@
                 app:tabIndicator="@null"
             />
 
-    <!-- ViewPager2 -->
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
