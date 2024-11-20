@@ -1,65 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <!-- Search Bar Container -->
         <LinearLayout
             android:id="@+id/searchBarContainer"
-            android:layout_margin="10dp"
-            android:weightSum="4"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <!-- Search Input -->
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
                 android:background="@drawable/search_bar_bg"
-                android:layout_weight="3">
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
 
                 <TextView
-                    android:layout_weight="4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="search"
-                    android:textSize="20sp" />
+                    android:layout_weight="1"
+                    android:text="Search here"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
+
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_search"
-                    android:layout_gravity="end"/>
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search" />
             </LinearLayout>
 
+            <!-- Notification Icon -->
             <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
                 android:background="@drawable/bg_imageview"
-                android:layout_weight="1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_notification"/>
+                android:padding="4dp"
+                android:src="@drawable/ic_notification" />
 
+            <!-- Profile Icon -->
             <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
                 android:background="@drawable/bg_imageview"
-                android:layout_width="35dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_circular_profile"/>
-
-
+                android:padding="4dp"
+                android:src="@drawable/ic_circular_profile" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/searchBarContainer">
             <!-- TabLayout -->
             <com.google.android.material.tabs.TabLayout
@@ -67,17 +73,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?android:attr/windowBackground"
-                app:tabMode="fixed"
-                app:tabIndicatorColor="@color/primary_color"
-                app:tabSelectedTextColor="@color/accent_color"
-                app:tabTextColor="@android:color/darker_gray"
                 app:tabIndicator="@null"
-            />
+                app:tabIndicatorColor="@color/primary_color"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/accent_color"
+                app:tabTextColor="@android:color/darker_gray" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_layout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="?attr/actionBarSize" />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
