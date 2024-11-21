@@ -12,12 +12,12 @@ class AuthViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
 
-    private val _authResult = MutableLiveData<Pair<Boolean, String?>>()
-    val authResult: LiveData<Pair<Boolean, String?>> = _authResult
+    private val _registerState = MutableLiveData<Pair<Boolean, String?>>()
+    val registerState: LiveData<Pair<Boolean, String?>> = _registerState
 
     fun registerUser(fullName: String, email: String, password: String) {
         repository.registerUser(fullName, email, password) { success, message ->
-            _authResult.postValue(Pair(success, message))
+            _registerState.postValue(Pair(success, message))
         }
     }
 }

@@ -46,6 +46,7 @@ class RegisterFragment : Fragment() {
         binding.btnRegister.setOnClickListener {
 
             binding.progressBar.visibility = View.VISIBLE
+            binding.btnRegister.visibility = View.GONE
 
             val fullName = binding.etFullname.text.toString()
             val email = binding.etEmail.text.toString()
@@ -55,21 +56,24 @@ class RegisterFragment : Fragment() {
             if (password != confirmPassword) {
                 Toast.makeText(requireContext(), "Passwords do not match", Toast.LENGTH_SHORT).show()
                 binding.progressBar.visibility = View.GONE
+                binding.btnRegister.visibility = View.VISIBLE
             } else {
                 viewModel.registerUser(fullName, email, password)
             }
         }
 
-        viewModel.authResult.observe(viewLifecycleOwner) { result ->
+        viewModel.registerState.observe(viewLifecycleOwner) { result ->
             val (success, message) = result
             if (success) {
                 Toast.makeText(context, "Registration Successful. Logging in...", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(requireContext(), ShoppingActivity::class.java))
                 requireActivity().finish()
                 binding.progressBar.visibility = View.GONE
+                binding.btnRegister.visibility = View.VISIBLE
             } else {
                 Toast.makeText(context, "Error: $message", Toast.LENGTH_SHORT).show()
                 binding.progressBar.visibility = View.GONE
+                binding.btnRegister.visibility = View.VISIBLE
             }
         }
     }
