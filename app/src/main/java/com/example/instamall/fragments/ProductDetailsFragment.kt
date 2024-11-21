@@ -1,4 +1,4 @@
-package com.example.instamall
+package com.example.instamall.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.instamall.R
 import com.example.instamall.adapters.ColorsAdapter
 import com.example.instamall.adapters.ProductImagesAdapter
 import com.example.instamall.adapters.SizesAdapter

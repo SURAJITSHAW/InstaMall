@@ -1,4 +1,6 @@
 plugins {
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-parcelize")
@@ -76,9 +78,13 @@ dependencies {
     implementation(libs.dotsindicator)
 
     // Dagger Hilt (for dependency injection)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     // Coroutines (for asynchronous programming)
     implementation(libs.kotlinx.coroutines.android)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

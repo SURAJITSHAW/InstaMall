@@ -11,7 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.instamall.R
 import com.example.instamall.databinding.ActivityLoginRegisterBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class LoginRegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginRegisterBinding

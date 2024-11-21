@@ -3,7 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.RegisterFragment">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:indicatorColor="@color/status_bar_color"
+        android:visibility="gone"
+        />
 
     <LinearLayout
         android:orientation="vertical"
@@ -35,6 +44,7 @@
 
         <!-- Full Name Field -->
         <EditText
+            android:id="@+id/etFullname"
             android:hint="Full Name"
             android:background="@drawable/input_background"
             android:padding="12dp"
@@ -44,6 +54,7 @@
 
         <!-- Email Field -->
         <EditText
+            android:id="@+id/etEmail"
             android:hint="Email"
             android:background="@drawable/input_background"
             android:padding="12dp"
@@ -53,6 +64,7 @@
 
         <!-- Password Field -->
         <EditText
+            android:id="@+id/etPassword"
             android:hint="Password"
             android:inputType="textPassword"
             android:background="@drawable/input_background"
@@ -63,6 +75,7 @@
 
         <!-- Confirm Password Field -->
         <EditText
+            android:id="@+id/etConfirmPassword"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:background="@drawable/input_background"
@@ -73,6 +86,7 @@
 
         <!-- Register Button -->
         <Button
+            android:id="@+id/btnRegister"
             android:text="Register"
             android:backgroundTint="#FFB74D"
             android:textColor="#FFFFFF"

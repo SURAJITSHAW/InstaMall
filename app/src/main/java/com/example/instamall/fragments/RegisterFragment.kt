@@ -1,18 +1,27 @@
 package com.example.instamall.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.instamall.R
+import com.example.instamall.activities.ShoppingActivity
 import com.example.instamall.databinding.FragmentRegisterBinding
+import com.example.instamall.viewmodel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private var _bindig: FragmentRegisterBinding? = null
     private val binding get() = _bindig!!
+
+    private val viewModel: AuthViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,5 +38,39 @@ class RegisterFragment : Fragment() {
         }
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnRegister.setOnClickListener {
+
+            binding.progressBar.visibility = View.VISIBLE
+
+            val fullName = binding.etFullname.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            val confirmPassword = binding.etConfirmPassword.text.toString()
+
+            if (password != confirmPassword) {
+                Toast.makeText(requireContext(), "Passwords do not match", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.GONE
+            } else {
+                viewModel.registerUser(fullName, email, password)
+            }
+        }
+
+        viewModel.authResult.observe(viewLifecycleOwner) { result ->
+            val (success, message) = result
+            if (success) {
+                Toast.makeText(context, "Registration Successful. Logging in...", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(requireContext(), ShoppingActivity::class.java))
+                requireActivity().finish()
+                binding.progressBar.visibility = View.GONE
+            } else {
+                Toast.makeText(context, "Error: $message", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.GONE
+            }
+        }
     }
 }
