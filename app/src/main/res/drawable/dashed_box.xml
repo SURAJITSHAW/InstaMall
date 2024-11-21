@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" /> <!-- Background color -->
+    <stroke
+        android:width="2dp"
+        android:color="#BDBDBD"
+        android:dashWidth="10dp"
+        android:dashGap="5dp" /> <!-- Dashed line styling -->
+    <corners android:radius="8dp" /> <!-- Rounded corners -->
+</shape>

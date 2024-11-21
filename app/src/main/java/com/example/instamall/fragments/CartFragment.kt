@@ -42,8 +42,8 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             onQuantityChanged = { position, newQty ->
                 cartItems[position].quantity = newQty
                 cartAdapter.notifyItemChanged(position)
-                // Optional: Update Firestore with new quantity
                 updateCartItemQuantity(cartItems[position].product.id!!, newQty)
+                calculateTotalAmount() // Recalculate total after quantity change
             },
             onRemoveItem = { position ->
                 val removedItem = cartItems[position]
@@ -51,6 +51,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 cartItems.removeAt(position)
                 cartAdapter.notifyItemRemoved(position)
                 Toast.makeText(requireContext(), "Item removed", Toast.LENGTH_SHORT).show()
+                calculateTotalAmount() // Recalculate total after item removal
             }
         )
 
@@ -87,12 +88,19 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                         cartItems.add(cartItem)
                     }
                     cartAdapter.notifyDataSetChanged()
+                    calculateTotalAmount() // Calculate total after fetching items
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(requireContext(), "Failed to load cart items: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         } ?: Toast.makeText(requireContext(), "Please log in to view the cart", Toast.LENGTH_SHORT).show()
     }
+
+    private fun calculateTotalAmount() {
+        val total = cartItems.sumOf { it.product.price.toDouble() * it.quantity.toDouble() }
+        binding.totalAmount.text = "₹%.2f".format(total) // Update the total amount TextView
+    }
+
 
     private fun updateCartItemQuantity(productId: String, quantity: Int) {
         currentUser?.let { user ->
