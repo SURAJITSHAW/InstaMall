@@ -24,7 +24,7 @@ class CartAdapter(
 
                 // Load product image with Glide
                 Glide.with(productImage.context)
-                    .load(item.product.imageUrls[0].firstOrNull())
+                    .load(item.product.imageUrls[0])
                     .into(productImage)
 
                 increaseQty.setOnClickListener {
