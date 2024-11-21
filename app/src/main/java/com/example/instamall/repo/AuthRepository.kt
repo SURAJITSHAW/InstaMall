@@ -1,7 +1,10 @@
 package com.example.instamall.repo
 
+import com.example.instamall.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -41,22 +44,13 @@ class AuthRepository @Inject constructor(
                 }
             }
     }
-    
-    fun loginUser(
-        email: String,
-        password: String,
-        onResult: (Boolean, String?) -> Unit
-    ) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    onResult(true, null)
-                } else {
-                    onResult(false, task.exception?.message)
-                }
-            }
-            .addOnFailureListener{
-                onResult(false, it.message)
-            }
+
+    suspend fun login(email: String, password: String): Resource<FirebaseUser?> {
+        return try {
+            val result = auth.signInWithEmailAndPassword(email, password).await()
+            Resource.Success(result.user) // On success, return the user
+        } catch (e: Exception) {
+            Resource.Failure(e.message) // On failure, return the error message
+        }
     }
 }
