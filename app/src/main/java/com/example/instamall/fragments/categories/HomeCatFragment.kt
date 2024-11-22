@@ -117,8 +117,7 @@ class HomeCatFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        activity.toggleBottomNav(isVisible = true, bottomNavId = R.id.bottomNavView)
-
+//        activity.toggleBottomNav(isVisible = true, bottomNavId = R.id.bottomNavView)
     }
 
     override fun onDestroyView() {

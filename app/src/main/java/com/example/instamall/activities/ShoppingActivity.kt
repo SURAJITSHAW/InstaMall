@@ -18,15 +18,19 @@ class ShoppingActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityShoppingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Handle system insets (padding for status/navigation bars)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            // Apply padding for the main layout but not for BottomNavigationView
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0) // No bottom padding here
             insets
         }
 
         val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
         val navController = navHostFragment.navController
 
+        // Setup BottomNavigationView with Navigation Controller
         binding.bottomNavView.setupWithNavController(navController)
     }
 }

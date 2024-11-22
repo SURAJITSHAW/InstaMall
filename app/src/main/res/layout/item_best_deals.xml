@@ -2,29 +2,28 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_height="130dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="6dp"
-    app:cardBackgroundColor="@android:color/white"
-    tools:ignore="MissingPrefix">
+    app:cardElevation="@null"
+    android:layout_marginEnd="10dp"
+    app:cardBackgroundColor="@android:color/white">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:layout_height="match_parent"
+        android:padding="12dp"
         android:gravity="center_vertical">
 
         <!-- Image of the deal -->
         <ImageView
             android:id="@+id/dealsImg"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="16dp"
-            android:scaleType="fitCenter" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/b1" />
 
         <!-- Deal details -->
         <LinearLayout
@@ -33,25 +32,45 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
+            <!-- Title with ellipsize -->
             <TextView
                 android:id="@+id/deal_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Best Deal Title"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:fontFamily="@font/poppins_light"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:layout_marginBottom="6dp" />
 
+            <!-- Price -->
             <TextView
                 android:id="@+id/deal_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rs.199"
-                android:textSize="16sp"
-                android:textColor="@color/primary_color"
+                android:text="Rs. 199"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="12dp" />
-        </LinearLayout>
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
 
+            <!-- Add to Cart button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_to_cart_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:fontFamily="@font/poppins"
+                app:cornerRadius="8dp"
+                android:paddingHorizontal="16dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/black" />
+
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

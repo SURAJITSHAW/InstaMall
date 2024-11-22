@@ -14,7 +14,8 @@
             android:id="@+id/searchBarContainer"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="5dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,30 +27,6 @@
                 android:text="LOGO"
                 android:fontFamily="@font/poppins_light"
                 android:textSize="25sp"/>
-
-            <!-- Search Input -->
-<!--            <LinearLayout-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="3"-->
-<!--                android:background="@drawable/search_bar_bg"-->
-<!--                android:gravity="center_vertical"-->
-<!--                android:paddingStart="12dp"-->
-<!--                android:paddingEnd="12dp">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:text="Search here"-->
-<!--                    android:textColor="@android:color/darker_gray"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="24dp"-->
-<!--                    android:layout_height="24dp"-->
-<!--                    android:src="@drawable/ic_search" />-->
-<!--            </LinearLayout>-->
 
             <!-- Notification Icon -->
             <ImageView
@@ -70,28 +47,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/searchBarContainer">
             <!-- TabLayout -->
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
+                android:layout_marginBottom="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?android:attr/windowBackground"
                 app:tabIndicator="@null"
-                app:tabIndicatorColor="@color/primary_color"
-                app:tabMode="fixed"
-                app:tabSelectedTextColor="@color/accent_color"
-                app:tabTextColor="@android:color/darker_gray" />
+                app:tabMode="fixed" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/tab_layout"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="?attr/actionBarSize" />
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
