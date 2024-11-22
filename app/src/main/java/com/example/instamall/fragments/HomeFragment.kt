@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.instamall.R
 import com.example.instamall.adapters.HomeViewPagerAdapter
 import com.example.instamall.databinding.FragmentHomeBinding
@@ -33,24 +34,26 @@ class HomeFragment : Fragment() {
             HomeCatFragment(),
             CardioCatFragment(),
             FlexibilityCatFragment(),
-            StrengthTrainingCatFragment(),
-            AccessoriesCatFragment()
+            StrengthTrainingCatFragment()
+
         )
 
         val homeViewPagerAdapter = HomeViewPagerAdapter(categoryFragments, childFragmentManager, lifecycle)
         binding.viewPager.adapter = homeViewPagerAdapter
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) {
-            tab, position ->
-                tab.text = when(position) {
-                    0 -> "Home"
-                    1 -> "Cardio"
-                    2 -> "Flexibility"
-                    3 -> "Training"
-                    4 -> "Accessory"
-                    else -> null
-                }
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            val customTab = LayoutInflater.from(requireContext()).inflate(R.layout.custom_tab, binding.tabLayout, false)
+            val tabTitle = customTab.findViewById<TextView>(R.id.tab_title)
+            tabTitle.text = when (position) {
+                0 -> "Home"
+                1 -> "Cardio"
+                2 -> "Flexibility"
+                3 -> "Training"
+                else -> null
+            }
+            tab.customView = customTab
         }.attach()
+
     }
 
 }

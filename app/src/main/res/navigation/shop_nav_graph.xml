@@ -23,7 +23,11 @@
         android:id="@+id/cartFragment"
         android:name="com.example.instamall.fragments.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.example.instamall.fragments.ProductDetailsFragment"
@@ -33,4 +37,9 @@
             android:name="product"
             app:argType="com.example.instamall.data.Product" />
     </fragment>
+    <fragment
+        android:id="@+id/billingFragment"
+        android:name="com.example.instamall.fragments.BillingFragment"
+        android:label="fragment_billing"
+        tools:layout="@layout/fragment_billing" />
 </navigation>
