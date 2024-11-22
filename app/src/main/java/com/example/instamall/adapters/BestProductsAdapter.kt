@@ -6,14 +6,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.instamall.R
 import com.example.instamall.data.Product
+import com.example.instamall.fragments.HomeFragmentDirections
 
 class BestProductsAdapter(
     private val products: List<Product>,
-    private val onAddToCartClicked: (Product) -> Unit // Callback for button click
+    private val navController: NavController, // Add NavController to handle navigation
+    private val onAddToCartClicked: (Product) -> Unit, // Callback for button click
 ) : RecyclerView.Adapter<BestProductsAdapter.ProductViewHolder>() {
 
     // ViewHolder class
@@ -45,6 +48,12 @@ class BestProductsAdapter(
         // Add to Cart button click
         holder.addToCartButton.setOnClickListener {
             onAddToCartClicked(product)
+        }
+
+        // Navigate to ProductDetailsFragment on product click
+        holder.itemView.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToProductDetailsFragment(product)
+            navController.navigate(action)
         }
     }
 
