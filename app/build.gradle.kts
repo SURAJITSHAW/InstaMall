@@ -82,6 +82,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     // Coroutines (for asynchronous programming)
     implementation(libs.kotlinx.coroutines.android)
+
+//    
+    implementation("me.relex:circleindicator:2.1.6")
 }
 
 // Allow references to generated code

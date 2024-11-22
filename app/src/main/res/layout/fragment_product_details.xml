@@ -1,117 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- CardView with ViewPager for Product Images -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:elevation="@null"
-            android:padding="8dp">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="300dp" />
-        </androidx.cardview.widget.CardView>
-
-
-        <!-- Name and Price in Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/product_name"
-                android:layout_width="0dp"
+            <!-- ViewPager with Bottom-Rounded Corners -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Product Name"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:paddingEnd="8dp"
-                android:textColor="@android:color/black" />
+                android:layout_marginBottom="16dp"
+                app:cardElevation="@null"
+                android:elevation="@null"
+                app:cardUseCompatPadding="false"
+                app:cardCornerRadius="16dp">
 
-            <TextView
-                android:id="@+id/product_price"
-                android:layout_width="wrap_content"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Product Details Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="$99.99"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/holo_red_dark" />
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Product Name and Price Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <!-- Product Name -->
+                    <TextView
+                        android:id="@+id/product_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Product Name"
+                        android:fontFamily="@font/poppins_light"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Product Price -->
+                    <TextView
+                        android:id="@+id/product_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹1219"
+                        android:fontFamily="@font/poppins_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp"
+                        android:textColor="@android:color/holo_red_dark" />
+                </LinearLayout>
+
+                <!-- Colors, Sizes -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Colors Section -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Colors"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:layout_marginBottom="8dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/colors_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal" />
+                    </LinearLayout>
+
+                    <!-- Sizes Section -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sizes"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:layout_marginBottom="8dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/sizes_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Product Description -->
+                <TextView
+                    android:id="@+id/product_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This is the product description. It provides detailed information about the product."
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@android:color/darker_gray" />
+
+                <!-- Add to Cart Button -->
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="8dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/add_to_cart_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add to Cart"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="12dp"
+                    android:textSize="16sp"
+                    android:backgroundTint="@color/black"
+                    android:fontFamily="@font/poppins_light"
+                    android:layout_gravity="center" />
+            </LinearLayout>
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <!-- Product Description -->
-        <TextView
-            android:id="@+id/product_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is the product description. It provides detailed information about the product."
-            android:textSize="16sp"
-            android:lineSpacingExtra="4dp"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/darker_gray" />
-
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Colors and Sizes -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Available Colors"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/colors_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Available Sizes"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sizes_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:orientation="horizontal" />
-
-        <!-- Add to Cart Button -->
-        <Button
-            android:id="@+id/add_to_cart_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add to Cart"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:textColor="@android:color/white"
-            android:textAllCaps="false"
-            android:layout_marginTop="16dp" />
-
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,7 +51,7 @@ class ProductDetailsFragment : Fragment() {
 
         // Set product details
         binding.productName.text = product.name
-        binding.productPrice.text = "$${product.price}"
+        binding.productPrice.text = "₹${product.price}"
         binding.productDescription.text = product.description ?: "No description available."
 
         // Set up ViewPager for product images
