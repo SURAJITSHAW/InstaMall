@@ -73,6 +73,14 @@
                         android:textColor="@android:color/holo_red_dark" />
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#363636"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="16dp" />
+
+
                 <!-- Colors, Sizes -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,7 +101,6 @@
                             android:text="Colors"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="@android:color/white"
                             android:layout_marginBottom="8dp" />
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -117,7 +124,6 @@
                             android:text="Sizes"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="@android:color/white"
                             android:layout_marginBottom="8dp" />
 
                         <androidx.recyclerview.widget.RecyclerView
