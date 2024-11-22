@@ -27,10 +27,14 @@
 
         <!-- Product Name -->
         <TextView
+            android:fontFamily="@font/poppins_light"
             android:id="@+id/product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product Name"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:maxLines="1"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -38,24 +42,26 @@
 
         <!-- Product Price -->
         <TextView
+            android:fontFamily="@font/poppins"
             android:id="@+id/product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$299"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            android:layout_marginTop="4dp"/>
+            android:text="₹299"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
 
-        <!-- Add to Cart Button -->
-        <Button
+        <!-- Add to Cart button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_add_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to Cart"
+            android:fontFamily="@font/poppins"
+            app:cornerRadius="8dp"
+            android:paddingHorizontal="16dp"
+            android:textSize="14sp"
             android:textColor="@android:color/white"
-            android:backgroundTint="@color/primary_color"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center"/>
+            android:backgroundTint="@color/black" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
