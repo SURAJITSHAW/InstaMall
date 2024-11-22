@@ -24,7 +24,7 @@
         app:labelVisibilityMode="unlabeled"
         android:id="@+id/bottomNavView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/shop_btm_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
