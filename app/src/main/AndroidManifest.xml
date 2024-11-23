@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
@@ -15,23 +14,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InstaMall"
         tools:targetApi="31" >
+
+        <!-- Razorpay Checkout Activity -->
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:replace="android:theme" />
+
+        <!-- Your Login Register Activity -->
         <activity
             android:name=".activities.LoginRegisterActivity"
             android:exported="true" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <!-- Your Shopping Activity -->
         <activity
             android:name=".activities.ShoppingActivity"
-            android:exported="false" >
+            android:exported="false" />
 
-
-        </activity>
+        <!-- Razorpay Receiver -->
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true"
+            tools:replace="android:exported" />
     </application>
 
 </manifest>

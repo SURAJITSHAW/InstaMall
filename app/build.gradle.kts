@@ -85,6 +85,12 @@ dependencies {
 
 //    
     implementation("me.relex:circleindicator:2.1.6")
+
+//    razorpay
+    implementation(libs.checkout)
+    implementation(libs.checkout.v1623)
+
+
 }
 
 // Allow references to generated code

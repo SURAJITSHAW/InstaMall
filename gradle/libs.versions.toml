@@ -1,5 +1,7 @@
 [versions]
 agp = "8.7.2"
+checkout = "1.6.4"
+checkoutVersion = "1.6.23"
 circleimageview = "3.1.0"
 dotsindicator = "4.3"
 glide = "4.15.1"
@@ -25,6 +27,8 @@ firebaseFirestore = "25.1.1"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationFragment" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragment" }
+checkout = { module = "com.razorpay:checkout", version.ref = "checkout" }
+checkout-v1623 = { module = "com.razorpay:checkout", version.ref = "checkoutVersion" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
