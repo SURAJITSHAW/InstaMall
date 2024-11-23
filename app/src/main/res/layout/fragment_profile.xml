@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:gravity="center">
 
         <!-- Profile Picture -->
         <ImageView
@@ -166,7 +166,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_orders"
+                        android:src="@drawable/ic_orders_second"
                         android:layout_marginEnd="16dp" />
 
                     <TextView
@@ -183,14 +183,17 @@
         </androidx.cardview.widget.CardView>
 
         <!-- Logout Button -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            android:fontFamily="@font/poppins_light"
+            android:textStyle="bold"
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:textColor="#FFFFFF"
             android:backgroundTint="@color/black"
-            android:padding="16dp"
+            android:padding="12dp"
+            app:cornerRadius="8dp"
             android:layout_marginTop="24dp"
             android:textSize="16sp" />
 
