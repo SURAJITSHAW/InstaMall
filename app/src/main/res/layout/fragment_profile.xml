@@ -2,10 +2,8 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true"
-    tools:context=".fragments.ProfileFragment"
-    android:background="#F5EFE6">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,80 +26,161 @@
 
         <!-- Username -->
         <TextView
+            android:fontFamily="@font/poppins_light"
             android:id="@+id/usernameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="John Doe"
+            android:text="Michael Jonathon"
             android:textSize="20sp"
             android:textColor="#3E2723"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="24dp"
             android:textStyle="bold" />
 
-        <!-- Email -->
-        <TextView
-            android:id="@+id/emailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="john.doe@example.com"
-            android:textSize="16sp"
-            android:textColor="#795548"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Edit Profile Button -->
-        <Button
-            android:id="@+id/editProfileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#FFB74D"
-            android:paddingHorizontal="32dp"
-            android:paddingVertical="8dp"
-            android:layout_marginBottom="32dp" />
-
-        <!-- Saved Address Section -->
-        <TextView
+        <!-- Profile Settings Options -->
+        <androidx.cardview.widget.CardView
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Saved Address"
-            android:textSize="18sp"
-            android:textColor="#3E2723"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/savedAddressText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="123 Main Street, Springfield"
-            android:textSize="16sp"
-            android:textColor="#795548"
-            android:padding="8dp"
-            android:background="#FFFFFF"
-            android:elevation="2dp"
-            android:layout_marginBottom="16dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <!-- All Orders Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="All Orders"
-            android:textSize="18sp"
-            android:textColor="#3E2723"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+                <!-- Change Name -->
+                <LinearLayout
+                    android:id="@+id/changePersonDetails"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
 
-        <TextView
-            android:id="@+id/allOrdersText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Order #12345: Delivered\nOrder #12346: In Transit"
-            android:textSize="16sp"
-            android:textColor="#795548"
-            android:padding="8dp"
-            android:background="#FFFFFF"
-            android:elevation="2dp"
-            android:layout_marginBottom="16dp" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_edit"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change Person Details"
+                        android:textSize="16sp"
+                        android:textColor="#3E2723"
+                        android:gravity="start" />
+                </LinearLayout>
+
+                <!-- Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_color"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Change Password -->
+                <LinearLayout
+                    android:id="@+id/changePassword"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_password"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change Password"
+                        android:textSize="16sp"
+                        android:textColor="#3E2723"
+                        android:gravity="start" />
+                </LinearLayout>
+
+                <!-- Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_color"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Your Addresses -->
+                <LinearLayout
+                    android:id="@+id/yourAddresses"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_address"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Addresses"
+                        android:textSize="16sp"
+                        android:textColor="#3E2723"
+                        android:gravity="start" />
+                </LinearLayout>
+
+                <!-- Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_color"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Your Orders -->
+                <LinearLayout
+                    android:id="@+id/yourOrders"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_orders"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Orders"
+                        android:textSize="16sp"
+                        android:textColor="#3E2723"
+                        android:gravity="start" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Logout Button -->
         <Button
@@ -110,9 +189,10 @@
             android:layout_height="wrap_content"
             android:text="Logout"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#E53935"
-            android:paddingVertical="12dp"
-            android:layout_marginTop="16dp" />
+            android:backgroundTint="@color/black"
+            android:padding="16dp"
+            android:layout_marginTop="24dp"
+            android:textSize="16sp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
