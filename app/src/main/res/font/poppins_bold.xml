@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <dimen name="margin_small"
+        tools:ignore="ExtraText">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+
+</font-family>

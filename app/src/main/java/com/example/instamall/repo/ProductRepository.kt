@@ -35,7 +35,7 @@ class ProductRepository {
 
     fun getBestProducts(onSuccess: (List<Product>) -> Unit, onFailure: (Exception) -> Unit) {
         firestore.collection("products")
-            .whereEqualTo("category", "special")
+            .whereEqualTo("category", "all")
             .get()
             .addOnSuccessListener { snapshot ->
                 val products = snapshot.documents.mapNotNull { it.toObject(Product::class.java) }

@@ -5,13 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".fragments.LoginFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_second"
+        android:alpha="0.7"/>
+
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="24dp"
-        android:background="#F5EFE6">
+        android:padding="24dp">
 
         <!-- Heading -->
         <TextView
@@ -19,7 +24,8 @@
             android:layout_width="wrap_content"
             android:text="Welcome Back!"
             android:textSize="28sp"
-            android:textColor="#3E2723"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_light"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
@@ -29,7 +35,8 @@
             android:layout_width="wrap_content"
             android:text="Sign in to personalize your space."
             android:textSize="16sp"
-            android:textColor="#795548"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_light"
             android:gravity="center"
             android:layout_marginBottom="24dp"/>
 
@@ -60,8 +67,10 @@
         <Button
             android:id="@+id/btnLogin"
             android:text="Login"
-            android:backgroundTint="#FFB74D"
+            android:backgroundTint="@color/black"
             android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"/>
@@ -79,7 +88,8 @@
             android:layout_width="wrap_content"
             android:text="Forgot Password?"
             android:textSize="14sp"
-            android:textColor="#BCAAA4"
+            android:textColor="#C7C5C4"
+            android:fontFamily="@font/poppins_light"
             android:gravity="center"
             android:layout_marginBottom="16dp"/>
 
@@ -90,7 +100,8 @@
             android:layout_width="wrap_content"
             android:text="New here? Register"
             android:textSize="16sp"
-            android:textColor="#FFAD60"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_light"
             android:gravity="center"
             android:layout_marginBottom="16dp"/>
     </LinearLayout>

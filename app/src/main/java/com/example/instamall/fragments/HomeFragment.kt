@@ -46,9 +46,9 @@ class HomeFragment : Fragment() {
             val tabTitle = customTab.findViewById<TextView>(R.id.tab_title)
             tabTitle.text = when (position) {
                 0 -> "Home"
-                1 -> "Cardio"
-                2 -> "Flexibility"
-                3 -> "Training"
+                1 -> "Sofa"
+                2 -> "Chairs"
+                3 -> "Cabinets"
                 else -> null
             }
             tab.customView = customTab

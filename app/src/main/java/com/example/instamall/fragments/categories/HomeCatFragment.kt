@@ -86,7 +86,7 @@ class HomeCatFragment : Fragment() {
     }
 
     private fun fetchBestProducts() {
-        productRepository.getBestDealsProducts(
+        productRepository.getBestProducts(
             onSuccess = { products ->
                 binding.rvBestProducts.adapter = BestProductsAdapter(
                     products,
