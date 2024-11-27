@@ -9,11 +9,10 @@ import android.widget.TextView
 import com.example.instamall.R
 import com.example.instamall.adapters.HomeViewPagerAdapter
 import com.example.instamall.databinding.FragmentHomeBinding
-import com.example.instamall.fragments.categories.AccessoriesCatFragment
-import com.example.instamall.fragments.categories.CardioCatFragment
-import com.example.instamall.fragments.categories.FlexibilityCatFragment
+import com.example.instamall.fragments.categories.SofaCatFragment
+import com.example.instamall.fragments.categories.ChairsCatFragment
 import com.example.instamall.fragments.categories.HomeCatFragment
-import com.example.instamall.fragments.categories.StrengthTrainingCatFragment
+import com.example.instamall.fragments.categories.CabinetsCatFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
@@ -32,9 +31,9 @@ class HomeFragment : Fragment() {
 
         val categoryFragments = arrayListOf<Fragment>(
             HomeCatFragment(),
-            CardioCatFragment(),
-            FlexibilityCatFragment(),
-            StrengthTrainingCatFragment()
+            SofaCatFragment(),
+            ChairsCatFragment(),
+            CabinetsCatFragment()
 
         )
 

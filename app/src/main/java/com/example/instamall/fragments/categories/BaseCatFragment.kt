@@ -1,60 +1,101 @@
 package com.example.instamall.fragments.categories
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.instamall.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.instamall.adapters.ProductAdapter
+import com.example.instamall.data.Product
+import com.example.instamall.databinding.FragmentBaseCatBinding
+import com.example.instamall.repo.ProductRepository
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import java.util.UUID
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+abstract class BaseCatFragment : Fragment() {
+    private var _binding: FragmentBaseCatBinding? = null
+    private val binding get() = _binding!!
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BaseCatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-open class BaseCatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val firestore by lazy { FirebaseFirestore.getInstance() }
+    private val currentUser by lazy { FirebaseAuth.getInstance().currentUser }
+
+    private val productRepository = ProductRepository()
+
+    // Child fragments will override these methods
+    abstract fun getCategoryId(): String
+    abstract fun getHeading(): String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_base_cat, container, false)
+    ): View {
+        _binding = FragmentBaseCatBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BaseCatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BaseCatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Set the heading
+        binding.tvHeading.text = getHeading()
+
+        // Setup RecyclerView
+        binding.rvProducts.layoutManager = GridLayoutManager(requireContext(), 2)
+
+        // Fetch and display products
+        fetchProducts()
+    }
+
+
+    private fun addToCart(product: Product) {
+        currentUser?.let { user ->
+            val cartItem = hashMapOf(
+                "product" to product, // Stores the entire Product object
+                "quantity" to 1 // Default quantity
+            )
+            val cartRef = firestore.collection("users")
+                .document(user.uid)
+                .collection("cart")
+
+            // Add the product to the user's cart
+            cartRef.document(product.id ?: UUID.randomUUID().toString())
+                .set(cartItem, SetOptions.merge())
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Added to cart", Toast.LENGTH_SHORT).show()
                 }
+                .addOnFailureListener { e ->
+                    Toast.makeText(requireContext(), "Failed to add to cart: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        } ?: Toast.makeText(requireContext(), "Please log in to add items to the cart", Toast.LENGTH_SHORT).show()
+    }
+
+
+    protected open fun fetchProducts() {
+        productRepository.getProductsByCategory(
+            categoryId = getCategoryId(),
+            onSuccess = { products ->
+                binding.rvProducts.adapter = ProductAdapter(products, navController = findNavController(),
+                ) { product ->
+                    // Handle Add to Cart click
+                    addToCart(product)
+                    Toast.makeText(requireContext(), "${product.name} added to cart", Toast.LENGTH_SHORT).show()
+                }
+            },
+            onFailure = { exception ->
+                Toast.makeText(requireContext(), "Failed to load products: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -7,9 +7,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 class ProductRepository {
     private val firestore = FirebaseFirestore.getInstance()
 
-    fun getSpecialProducts(onSuccess: (List<Product>) -> Unit, onFailure: (Exception) -> Unit) {
+    // New method to fetch products by category ID
+    fun getProductsByCategory(categoryId: String, onSuccess: (List<Product>) -> Unit, onFailure: (Exception) -> Unit) {
         firestore.collection("products")
-            .whereEqualTo("category", "special")
+            .whereEqualTo("category", categoryId) // Query based on the categoryId
             .get()
             .addOnSuccessListener { snapshot ->
                 val products = snapshot.documents.mapNotNull { it.toObject(Product::class.java) }
@@ -19,6 +20,7 @@ class ProductRepository {
                 onFailure(exception)
             }
     }
+
 
     fun getBestDealsProducts(onSuccess: (List<Product>) -> Unit, onFailure: (Exception) -> Unit) {
         firestore.collection("products")
@@ -35,7 +37,6 @@ class ProductRepository {
 
     fun getBestProducts(onSuccess: (List<Product>) -> Unit, onFailure: (Exception) -> Unit) {
         firestore.collection("products")
-            .whereEqualTo("category", "all")
             .get()
             .addOnSuccessListener { snapshot ->
                 val products = snapshot.documents.mapNotNull { it.toObject(Product::class.java) }
